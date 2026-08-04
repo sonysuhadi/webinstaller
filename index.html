@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bird Detections - IoT & Computer Vision System</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+    }
+    /* Subtle Background Grid Pattern */
+    .bg-grid {
+      background-size: 30px 30px;
+      background-image: radial-gradient(circle, rgba(203, 213, 225, 0.4) 1px, transparent 1px);
+    }
+    /* Glow Blob Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-10px) scale(1.05); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 bg-grid text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white relative overflow-x-hidden">
+
+  <!-- Background Decorative Glow Blobs -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute -top-20 left-1/4 w-96 h-96 bg-blue-200/50 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute top-10 right-1/4 w-80 h-80 bg-sky-200/40 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  </div>
+
+  <!-- Header Nav -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-50 transition-all">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-blue-500/20 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-extrabold text-lg tracking-tight text-slate-900 block leading-none">Bird Detections</span>
+          <span class="text-[10px] text-slate-500 font-medium">IoT & Computer Vision System</span>
+        </div>
+      </div>
+      
+      <!-- Status Badge -->
+      <div class="flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200/70 rounded-full text-xs font-semibold text-blue-700">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+        </span>
+        <span>v1.0 Release</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="max-w-4xl mx-auto px-6 pt-12 pb-8 text-center relative">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-100/60 border border-blue-200 text-blue-700 rounded-full text-xs font-semibold mb-6 shadow-sm">
+      <span>🌾 Solusi Otomatisasi Pengusir Hama Tanaman Padi</span>
+    </div>
+    
+    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-5 leading-tight">
+      Sistem Deteksi & Pengusir Hama Burung <span class="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Real-Time</span>
+    </h1>
+    
+    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+      Unduh aplikasi mobile resmi <b>Bird Detections</b> untuk memantau aktivitas deteksi YOLOv8, status sensor LDR, buzzer pengusir, hingga telemetry hardware secara langsung dari jarak jauh.
+    </p>
+
+    <!-- Interactive Download Button -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://drive.google.com/file/d/1FFqeQL3ITkyaWcq08QBn5aS6SbDKMtBU/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="group relative w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold rounded-2xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3 overflow-hidden">
+        <!-- Shine effect -->
+        <div class="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-in-out"></div>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        <span>Download File APK (via Google Drive)</span>
+      </a>
+    </div>
+    
+    <p class="text-xs text-slate-500 mt-4 flex items-center justify-center gap-2">
+      <span>Penyimpanan:</span>
+      <code class="bg-white border border-slate-200 px-2 py-0.5 rounded text-slate-700 font-mono text-[11px] shadow-xs">Google Drive</code>
+      <span>• Android 8.0+</span>
+    </p>
+  </header>
+
+  <!-- Interactive Features Cards -->
+  <section class="max-w-4xl mx-auto px-6 py-6 w-full">
+    <div class="grid sm:grid-cols-3 gap-5">
+      
+      <!-- Card 1 -->
+      <div class="group bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-12 h-12 bg-blue-50 border border-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 text-xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+          👁️
+        </div>
+        <h3 class="font-bold text-slate-900 mb-1.5 text-base">Computer Vision YOLOv8</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">Pemrosesan citra digital presisi tinggi di tingkat edge via Raspberry Pi 5 & USB Web Camera.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-12 h-12 bg-blue-50 border border-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 text-xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+          ⚡
+        </div>
+        <h3 class="font-bold text-slate-900 mb-1.5 text-base">Pengusir Otomatis & LDR</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">Aktivasi otomatis Active Buzzer serta Modul Relay Lampu AC 220V saat area dalam kondisi gelap.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-12 h-12 bg-blue-50 border border-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 text-xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+          📊
+        </div>
+        <h3 class="font-bold text-slate-900 mb-1.5 text-base">Monitoring Telemetry</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">Pantau data snapshot, tingkat akurasi (confidence), waktu, serta suhu CPU & RAM perangkat.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Installation Steps -->
+  <main class="max-w-4xl mx-auto px-6 py-6 w-full">
+    <div class="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm">
+      <h2 class="text-lg sm:text-xl font-bold text-slate-900 text-center mb-8 flex items-center justify-center gap-2">
+        <span>📲 Cara Menginstal Aplikasi Mobile</span>
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Step 1 -->
+        <div class="relative bg-slate-50 border border-slate-200/80 p-5 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-sm">
+          <div class="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-sm mb-3 shadow-xs">
+            1
+          </div>
+          <h3 class="font-bold text-slate-900 text-sm mb-1">Unduh APK</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Klik tombol download di atas untuk membuka Google Drive dan mengunduh berkas APK.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative bg-slate-50 border border-slate-200/80 p-5 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-sm">
+          <div class="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-sm mb-3 shadow-xs">
+            2
+          </div>
+          <h3 class="font-bold text-slate-900 text-sm mb-1">Izinkan Akses</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Buka Pengaturan HP > Keamanan, lalu aktifkan <i>"Sumber Tidak Dikenal"</i> untuk browser yang kamu gunakan.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative bg-slate-50 border border-slate-200/80 p-5 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-sm">
+          <div class="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-sm mb-3 shadow-xs">
+            3
+          </div>
+          <h3 class="font-bold text-slate-900 text-sm mb-1">Pasang & Jalankan</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Ketuk berkas yang telah diunduh, pilih <b>Install</b>, dan buka aplikasi untuk langsung terhubung ke sistem.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-xs text-slate-500 border-t border-slate-200/80 bg-white/50 backdrop-blur-xs mt-auto">
+    <p>&copy; 2026 Bird Detections Project • Smart Agriculture Infrastructure</p>
+  </footer>
+
+</body>
+</html>
